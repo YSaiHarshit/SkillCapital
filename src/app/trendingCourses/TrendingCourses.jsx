@@ -4,13 +4,13 @@ import Python from "../../assets/Python.jpg";
 import Devops from "../../assets/Devops.jpg"
 import React_JS from "../../assets/React_JS.jpg"
 import Azure_Cloud from "../../assets/Azure_Cloud.jpg"
-import Fundamentals_of_Tech from "../../assets/Fundamentals_of_Tech.jpg"
+import Fundamentals_Of_Tech from "../../assets/Fundamentals_Of_Tech.jpg"
 import AWS_Cloud from "../../assets/AWS_Cloud.jpg"
 import AWS_Advanced from "../../assets/AWS_Advanced.jpg"
 import Site_Reliability_Engineer from "../../assets/Site_Reliability_Engineer.jpg"
 import SQL from "../../assets/SQL.jpg"
 import Html_and_Css_For_Web from "../../assets/Html_and_Css_For_Web.jpg"
-import Javascript from "../../assets/Javascript.jpg"
+import JavaScript from "../../assets/JavaScript.jpg"
 import UI_UX from "../../assets/UI_UX.jpg"
 import Next_JS from "../../assets/Next_JS.jpg"
 import Node_JS from "../../assets/Node_JS.jpg"
@@ -31,13 +31,13 @@ const Courses = [
     { title: "Devops", image: Devops },
     { title: "ReactJS", image: React_JS },
     { title: "Azure Cloud", image: Azure_Cloud },
-    { title: "Fundamentals of Tech", image: Fundamentals_of_Tech },
+    { title: "Fundamentals of Tech", image: Fundamentals_Of_Tech },
     { title: "AWS Cloud", image: AWS_Cloud },
     { title: "AWS Advanced", image: AWS_Advanced },
     { title: "Site Reliability Engineer (SRE)", image: Site_Reliability_Engineer },
     { title: "SQL", image: SQL },
     { title: "HTML & CSS for Web", image: Html_and_Css_For_Web },
-    { title: "JavaScript", image: Javascript },
+    { title: "JavaScript", image: JavaScript },
     { title: "UI/UX", image: UI_UX },
     { title: "Next JS", image: Next_JS },
     { title: "Node JS", image: Node_JS },

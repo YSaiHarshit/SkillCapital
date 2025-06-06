@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Leaf from "../../assets/Leaf.webp";
-import Hybrid from "../../assets/Hybrid.webp";
-import Approach from "../../assets/Approach.webp";
-import Transform from "../../assets/Transform.webp";
+import leaf from "../../assets/leaf.webp";
+import hybrid from "../../assets/hybrid.webp";
+import approach from "../../assets/approach.webp";
+import transform from "../../assets/transform.webp";
 
 export default function About() {
 
@@ -28,7 +28,7 @@ export default function About() {
 
                     <div className="mt-8 space-y-6">
                         <div className="flex items-start space-x-4">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Smart course recommendations tailored to individual</h2>
                                 <h2 className="text-xl font-normal">goals and industry trends.</h2>
@@ -36,7 +36,7 @@ export default function About() {
                         </div>
 
                         <div className="flex items-start space-x-4">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Personalized learning paths that adapt to your progress</h2>
                                 <h2 className="text-xl font-normal">and feedback.</h2>
@@ -44,14 +44,14 @@ export default function About() {
                         </div>
 
                         <div className="flex items-start space-x-4">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">AI-driven career roadmaps.</h2>
                             </div>
                         </div>
 
                         <div className="flex items-start space-x-4">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Wide range of courses across Design, Marketing,</h2>
                                 <h2 className="text-xl font-normal">Technology, Business, Study Abroad, and Life Skills.</h2>
@@ -61,14 +61,14 @@ export default function About() {
                 </div>
 
                 <div className="ml-6">
-                    <Image src={Hybrid} alt="Hybrid" className="w-[600px] h-[400px] object-cover" />
+                    <Image src={hybrid} alt="Hybrid" className="w-[600px] h-[400px] object-cover" />
                 </div>
 
             </div>
 
             <div className="flex justify-around items-start flex-wrap mt-6">
                 <div>
-                    <Image src={Approach} alt=""></Image>
+                    <Image src={approach} alt="approach"></Image>
                 </div>
 
                 <div className="mt-16">
@@ -76,28 +76,28 @@ export default function About() {
                     <h2 className="text-3xl font-bold">Learning</h2>
                     
                     <div className="flex items-start space-x-4 mt-6">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal mt-1">High-quality video content available on-demand.</h2>
                             </div>
                         </div>
 
                         <div className="flex items-start space-x-4 mt-6">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal mt-1">Self-paced learning modules to fit your schedule.</h2>
                             </div>
                         </div>
 
                          <div className="flex items-start space-x-4 mt-6">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal mt-1">Lifetime access to purchased courses.</h2>
                             </div>
                         </div>
 
                          <div className="flex items-start space-x-4 mt-6">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Multi-device compatibility for learning anytime,</h2>
                                 <h2 className="text-xl font-normal ">anywhere.</h2>
@@ -115,28 +115,28 @@ export default function About() {
 
                     <div className="mt-8 space-y-4">
                         <div className="flex items-center space-x-3">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Mock interviews with AI feedback.</h2>
                             </div>
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Resume building & Job application guidance.</h2>
                             </div>
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Real-time job matching.</h2>
                             </div>
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <Image src={Leaf} alt="" className="h-10 w-10"></Image>
+                            <Image src={leaf} alt="leaf" className="h-10 w-10"></Image>
                             <div>
                                 <h2 className="text-xl font-normal">Affordable and Accessible Education</h2>
                             </div>
@@ -145,7 +145,7 @@ export default function About() {
                 </div>
 
                 <div className="ml-6">
-                    <Image src={Transform} alt="" className="w-[600px] h-[400px] object-cover" />
+                    <Image src={transform} alt="transform" className="w-[600px] h-[400px] object-cover" />
                 </div>
 
             </div>
