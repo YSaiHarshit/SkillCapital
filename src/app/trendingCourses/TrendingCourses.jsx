@@ -9,7 +9,7 @@ import AWS_Cloud from "../../assets/AWS_Cloud.jpg"
 import AWS_Advanced from "../../assets/AWS_Advanced.jpg"
 import Site_Reliability_Engineer from "../../assets/Site_Reliability_Engineer.jpg"
 import SQL from "../../assets/SQL.jpg"
-import Html_and_Css_for_Web from "../../assets/Html_and_Css_for_Web.jpg"
+import Html_and_Css_For_Web from "../../assets/Html_and_Css_For_Web.jpg"
 import Javascript from "../../assets/Javascript.jpg"
 import UI_UX from "../../assets/UI_UX.jpg"
 import Next_JS from "../../assets/Next_JS.jpg"
@@ -36,7 +36,7 @@ const Courses = [
     { title: "AWS Advanced", image: AWS_Advanced },
     { title: "Site Reliability Engineer (SRE)", image: Site_Reliability_Engineer },
     { title: "SQL", image: SQL },
-    { title: "HTML & CSS for Web", image: Html_and_Css_for_Web },
+    { title: "HTML & CSS for Web", image: Html_and_Css_For_Web },
     { title: "JavaScript", image: Javascript },
     { title: "UI/UX", image: UI_UX },
     { title: "Next JS", image: Next_JS },
