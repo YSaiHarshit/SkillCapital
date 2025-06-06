@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Navbar from "./components/Navbar";
+import Navbar from "./navbar/Navbar";
 import ExploreCourses from "./exploreCourses/ExploreCourses";
 import TrendingCourses from "./trendingCourses/TrendingCourses";
 import About from "./about/About";

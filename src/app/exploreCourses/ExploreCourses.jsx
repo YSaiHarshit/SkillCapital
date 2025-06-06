@@ -48,57 +48,57 @@ export default function ExploreCourses() {
                     <h2 className="text-lg font-medium">Our Alumni Work at Top Companies</h2>
                 </div>
 
-               <div className="space-y-6">
-                 <div className="flex items-center space-x-20 mt-10 ml-56">
-                    <div className=" flex items-center space-x-2">
-                        <Image src={Adobe} alt="adobe" className="h-14 w-36 hover:brightness-65 transition duration-100"></Image>
+                <div className="space-y-6">
+                    <div className="flex items-center space-x-20 mt-10 ml-56">
+                        <div className=" flex items-center space-x-2">
+                            <Image src={Adobe} alt="adobe" className="h-14 w-36 transition duration-100 hover:brightness-75" />
+                        </div>
+
+                        <div className=" flex items-center space-x-2">
+                            <Image src={LandT} alt="landt" className="text-yellow-300 h-16 w-42 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div className=" flex items-center space-x-2">
+                            <Image src={Cognizant} alt="cognizant" className="h-10 w-44 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div className=" flex items-center space-x-2">
+                            <Image src={Microsoft} alt="microsoft" className="transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={Infosys} alt="infosys" className="h-10 w-32 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
                     </div>
 
-                    <div className=" flex items-center space-x-2">
-                        <Image src={LandT} alt="landt" className="text-yellow-300 h-16 w-42"></Image>
+                    <div className="flex items-center space-x-12 ml-56 mb-4">
+                        <div>
+                            <Image src={TCS} alt="tcs" className="h-18 w-40 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={HCL} alt="hcl" className="h-8 w-40 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={Mphasis} alt="mphasis" className=" h-16 w-40 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={Wipro} alt="wipro" className="h-16 w-32 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={Tech} alt="tech" className="h-14 w-26 transition duration-100 hover:brightness-75"></Image>
+                        </div>
+
+                        <div>
+                            <Image src={Cyient} alt="cyient" className="h-14 w-32 transition duration-100 hover:brightness-75"></Image>
+                        </div>
                     </div>
-
-                    <div className=" flex items-center space-x-2">
-                        <Image src={Cognizant} alt="cognizant" className="h-10 w-44"></Image>
-                    </div>
-
-                    <div className=" flex items-center space-x-2">
-                        <Image src={Microsoft} alt="microsoft"></Image>
-                    </div>
-
-                    <div>
-                        <Image src={Infosys} alt="infosys" className="h-10"></Image>
-                    </div>
-
                 </div>
 
-                <div className="flex items-center space-x-12 ml-56 mb-4">
-                    <div>
-                        <Image src={TCS} alt="tcs" className="h-18 w-40"></Image>
-                    </div>
-
-                    <div>
-                        <Image src={HCL} alt="hcl" className="h-8 w-40"></Image>
-                </div>
-
-                <div>
-                    <Image src={Mphasis} alt="mphasis" className=" h-16 w-40"></Image>
-                </div>
-
-                <div>
-                    <Image src={Wipro} alt="wipro" className="h-16 w-32"></Image>
-                </div>
-
-                <div>
-                    <Image src={Tech} alt="tech" className="h-14 w-26"></Image>
-                </div>
-
-                <div>
-                    <Image src={Cyient} alt="cyient"   className="h-14 w-32"></Image>
-                </div>
-                </div>
-               </div>
-                
             </div>
         </div>
     )

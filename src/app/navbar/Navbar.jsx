@@ -1,18 +1,24 @@
 "use client"
 import Image from "next/image"
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import SignUp from "../signUp/SignUp";
+// import { useRouter } from "next/navigation";
 import skillcapital from "../../assets/skillcapital.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function Navbar() {
 
-    const router = useRouter();
+    const [ isSignUp , setIsSignUp ] = useState();
+    
 
-    const handleClick = () => {
-        router.push('/login');
-    }
+    // const router = useRouter();
+
+    // const handleClick = () => {
+    //     router.push('/login');
+    // }
 
     return (
 
@@ -20,10 +26,10 @@ export default function Navbar() {
             <div>
                 <nav className="fixed top-0 left-0 w-full bg-white flex items-center z-50 shadow">
                     <div className="flex ml-32 px-2 py-2">
-                        <a href="">
-                            <Image src={skillcapital} alt="" className="mt-2"></Image>
+                        <a href="" className="flex">
+                            <Image src={skillcapital} alt="" className="mt-2 h-12 w-16"></Image>
+                            <h2 className="p-4 text-4xl font-medium">SKILL CAPITAL</h2>
                         </a>
-                        <h2 className="p-4 text-4xl font-medium">SKILL CAPITAL</h2>
                     </div>
 
                     <div className="relative group inline-block text-left ml-24">
@@ -32,7 +38,7 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 mt-2" />
                         </div>
 
-                        <div className="absolute left-0 mt-8 w-50 rounded-b-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+                        <div className="absolute left-0 mt-7 w-50 rounded-b-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
                             <div className="py-2">
                                 <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
@@ -64,14 +70,18 @@ export default function Navbar() {
                     </div>
 
                     <div className="ml-24">
-                        <button className="bg-red-600 px-6 py-3 text-center rounded-md text-white font-medium hover:bg-red-500 cursor-pointer">Sign Up</button>
+                        <button onClick={() => setIsSignUp(true)} className="bg-red-600 px-6 py-3 text-center rounded-md text-white font-medium hover:bg-red-500 cursor-pointer">Sign Up</button>
                     </div>
 
                     <div className="ml-12">
-                        <button onClick={() => handleClick()} className="border border-red-400 bg-white px-6 py-3 text-center rounded-md text-red-600 font-medium hover:bg-red-500 hover:text-white cursor-pointer">Log In</button>
+                        <Link href="/login">
+                            <button className="border border-red-400 bg-white px-6 py-3 text-center rounded-md text-red-600 font-medium hover:bg-red-500 hover:text-white cursor-pointer">Log In</button>
+                        </Link>
                     </div>
                 </nav>
             </div>
+
+            {isSignUp && (<SignUp setIsSignUp = {setIsSignUp}/>)}
         </div>
     )
 }
