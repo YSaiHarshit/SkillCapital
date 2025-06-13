@@ -103,13 +103,13 @@ export default function TrendingCourses() {
                             </div>
                         </div>
 
-                        <div className="mt-2 ml-6 text-xl font-bold">₹ 1999</div>
+                        <div className="mt-2 ml-6 text-xl font-bold">₹ 999</div>
 
-                        <div className="p-4">
+                        <div className="p-4 text-gray-300">
                             <hr />
                         </div>
 
-                        <div className="p-4 text-center mr-10">
+                        <div className="p-4 flex justify-center">
                             <h2 className="text-2xl text-pink-600 font-semibold cursor-pointer">View Course
                                 <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
                             </h2>
@@ -128,7 +128,7 @@ export default function TrendingCourses() {
                     >
                     </button>
                 ))}
-            </div>
+            </div>  
 
             <div className="text-center px-6 py-4">
             </div>

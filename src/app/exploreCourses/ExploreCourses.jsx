@@ -1,5 +1,6 @@
 import { faLaptop } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import Image from "next/image";
 import Adobe from "../../assets/Adobe.webp";
 import LandT from "../../assets/LandT.webp";
@@ -23,7 +24,7 @@ export default function ExploreCourses() {
             </div>
 
             <div className="text-center text-8xl font-bold space-y-4">
-                <h2>Get Skilled to Reach</h2>
+                <h2>Get <span className="bg-gradient-to-r from-[#006dbd] to-[#002cd4] bg-clip-text text-transparent">Skilled</span> to Reach</h2>
                 <h2>Your Goal</h2>
             </div>
 
@@ -34,9 +35,12 @@ export default function ExploreCourses() {
             </div>
 
             <div className="flex items-center justify-center px-2 py-8">
+                <Link href="/courses">
                 <button className="bg-red-600 hover:bg-red-700 px-4 py-4 flex items-center justify-center rounded-lg  cursor-pointer ">
                     <FontAwesomeIcon icon={faLaptop} className="text-white h-6" />
-                    <span className=" ml-2 text-white font-semibold">Explore Courses</span></button>
+                    <span className=" ml-2 text-white font-semibold">Explore Courses</span>
+                </button>
+                </Link>
             </div>
 
             <div className="mt-8 px-2 py-4 space-y-2">
@@ -90,11 +94,11 @@ export default function ExploreCourses() {
                         </div>
 
                         <div>
-                            <Image src={Tech} alt="tech" className="h-14 w-26 transition duration-100 hover:brightness-75"></Image>
+                            <Image src={Tech} alt="tech" className="h-14 w-26 transition duration-100 hover:brightness-75 ml-2"></Image>
                         </div>
 
                         <div>
-                            <Image src={Cyient} alt="cyient" className="h-14 w-32 transition duration-100 hover:brightness-75"></Image>
+                            <Image src={Cyient} alt="cyient" className="h-14 w-32 transition duration-100 hover:brightness-75 ml-4"></Image>
                         </div>
                     </div>
                 </div>
