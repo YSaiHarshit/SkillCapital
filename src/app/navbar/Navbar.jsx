@@ -34,33 +34,37 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 mt-2" />
                         </div>
 
-                        <div className="absolute left-0 mt-7 w-50 rounded-b-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
-                            <div className="py-2">
-                                <Link href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+                        <div className="absolute left-0 mt-7 w-56 rounded-b-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+                            <div>
+                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
                                     <span className="text-sm text-gray-700">Python</span>
                                 </Link>
-                                <Link href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
                                     <span className="text-sm text-gray-700">Devops</span>
                                 </Link>
-                                <Link href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">React JS</span>
+                                    <span className="text-sm text-gray-700">Oops With Python</span>
                                 </Link>
-                                <Link href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">Azure Cloud</span>
+                                    <span className="text-sm text-gray-700">HTML and CSS for Web</span>
                                 </Link>
-                                <Link href="/courses" className="flex items-center px-4 py-2 text-sm text-gray-700">
-                                    <button className="bg-pink-600 text-slate-50 hover:bg-pink-700 font-semibold px-2 py-3 w-40 rounded-md cursor-pointer">All Courses</button>
+                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+                                    <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
+                                    <span className="text-sm text-gray-700">JavaScript</span>
+                                </Link>
+                                <Link href="/courses" className="flex items-center px-5 py-2 text-sm text-gray-700">
+                                    <button className="bg-pink-600 text-slate-50 hover:bg-pink-700 font-semibold px-2 py-3 w-44 rounded-lg cursor-pointer">All Courses</button>
                                 </Link>
                             </div>
                         </div>
                     </div>
 
                     <div className=" relative ml-6">
-                        <input type="text" name="" id="" className="border border-slate-400 focus:outline-none rounded-md  shadow-4xl px-4 py-2 w-96 " placeholder="Search Courses.." />
+                        <input type="text" className="border border-slate-400 focus:outline-none rounded-md  shadow-4xl px-4 py-2 w-96 " placeholder="Search Courses.." />
                         <FontAwesomeIcon icon={faMagnifyingGlass} className="absolute right-3  shadow-2xl top-1/2 transform -translate-y-1/2 text-gray-500 h-6 mr-1"
                         />
                     </div>

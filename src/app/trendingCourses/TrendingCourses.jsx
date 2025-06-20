@@ -2,22 +2,14 @@
 import Image from "next/image";
 import Python from "../../assets/Python.jpg";
 import Devops from "../../assets/Devops.jpg"
+import oops_with_python from "../../assets/oops_with_python.jpg"
 import React_JS from "../../assets/React_JS.jpg"
 import Azure_Cloud from "../../assets/Azure_Cloud.jpg"
 import Fundamentals_Of_Tech from "../../assets/Fundamentals_Of_Tech.jpg"
 import AWS_Cloud from "../../assets/AWS_Cloud.jpg"
-import AWS_Advanced from "../../assets/AWS_Advanced.jpg"
 import Site_Reliability_Engineer from "../../assets/Site_Reliability_Engineer.jpg"
-import SQL from "../../assets/SQL.jpg"
 import Html_and_Css_For_Web from "../../assets/Html_and_Css_For_Web.jpg"
 import JavaScript from "../../assets/JavaScript.jpg"
-import UI_UX from "../../assets/UI_UX.jpg"
-import Next_JS from "../../assets/Next_JS.jpg"
-import Node_JS from "../../assets/Node_JS.jpg"
-import Express_JS from "../../assets/Express_JS.jpg"
-import Manual_Testing from "../../assets/Manual_Testing.jpg"
-import Azure_Admin from "../../assets/Azure_Admin.jpg"
-import Azure_Devops from "../../assets/Azure_Devops.jpg"
 import Kubernetes from "../../assets/Kubernetes.jpg"
 import Terraform from "../../assets/Terraform.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,26 +19,19 @@ import { useState, useEffect } from "react";
 
 const Courses = [
 
-    { title: "Python", image: Python },
-    { title: "Devops", image: Devops },
-    { title: "ReactJS", image: React_JS },
-    { title: "Azure Cloud", image: Azure_Cloud },
-    { title: "Fundamentals of Tech", image: Fundamentals_Of_Tech },
-    { title: "AWS Cloud", image: AWS_Cloud },
-    { title: "AWS Advanced", image: AWS_Advanced },
-    { title: "Site Reliability Engineer (SRE)", image: Site_Reliability_Engineer },
-    { title: "SQL", image: SQL },
-    { title: "HTML & CSS for Web", image: Html_and_Css_For_Web },
-    { title: "JavaScript", image: JavaScript },
-    { title: "UI/UX", image: UI_UX },
-    { title: "Next JS", image: Next_JS },
-    { title: "Node JS", image: Node_JS },
-    { title: "Express JS", image: Express_JS },
-    { title: "Manual Testing", image: Manual_Testing },
-    { title: "Azure Admin", image: Azure_Admin },
-    { title: "Azure Devops", image: Azure_Devops },
-    { title: "Kubernetes", image: Kubernetes },
-    { title: "Terraform", image: Terraform }
+    { title: "Python", img: Python },
+    { title: "Devops", img: Devops },
+    { title: "Oops With Python", img: oops_with_python },
+    { title: "Html_and_Css_For_Web", img: Html_and_Css_For_Web },
+    { title: "JavaScript", img: JavaScript },
+    { title: "React_JS", img: React_JS },
+    { title: "Terraform", img: Terraform },
+    { title: "Kubernetes", img: Kubernetes },
+    { title: "Site_Reliability_Engineer", img: Site_Reliability_Engineer },
+    { title: "AWS_Cloud", img: AWS_Cloud },
+    { title: "Azure_Cloud", img: Azure_Cloud },
+    { title: "Fundamentals_Of_Tech", img: Fundamentals_Of_Tech }
+
 ]
 
 export default function TrendingCourses() {
@@ -76,7 +61,7 @@ export default function TrendingCourses() {
             <div className="flex max-w-8xl gap-10 px-10">
                 {visibleCourses.map((course, index) => (
                     <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden w-[450px] transition transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg cursor-pointer">
-                        <Image src={course.image} alt={course.title} className="object-cover cursor-pointer"></Image>
+                        <Image src={course.img} alt={course.title} className="object-cover cursor-pointer"></Image>
 
                         <div className="px-6 py-4">
                             <h2 className="text-xl font-semibold">{course.title}</h2>
@@ -121,14 +106,9 @@ export default function TrendingCourses() {
 
             <div className="flex justify-center mt-12 space-x-2">
                 {Array.from({ length: totalPages }).map((_, i) => (
-                    <button
-                        key={i}
-                        className={`w-2 h-2  rounded-full ${isCurrentPage === i ? 'bg-pink-600' : 'bg-gray-400'}`}
-                        onClick={() => setIsCurrentPage(i)}
-                    >
-                    </button>
+                    <button key={i} className={`w-2 h-2  rounded-full ${isCurrentPage === i ? 'bg-pink-600' : 'bg-gray-400'}`} onClick={() => setIsCurrentPage(i)} > </button>
                 ))}
-            </div>  
+            </div>
 
             <div className="text-center px-6 py-4">
             </div>

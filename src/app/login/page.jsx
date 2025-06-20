@@ -20,8 +20,8 @@ export default function Login() {
                     <h2 className="text-4xl font-semibold tracking-widest">SKILL CAPITAL</h2>
                 </div>
 
-                <form>
-                    <div className="mt-44">
+                <form className="mt-10">
+                    <div>
                         <div className="space-y-10">
                             <div className="space-y-2">
                                 <h2 className="ml-2">Email</h2>
@@ -57,7 +57,7 @@ export default function Login() {
                         <span>Remember Me</span>
                     </div>
 
-                    <div className="mt-10">
+                    <div className="mt-5">
                         <button type="submit" className="bg-red-500 text-white hover:bg-red-700 text-center font-semibold rounded-full px-2 py-2 w-86 cursor-pointer ">Login</button>
                     </div>
                     <div className="mt-6 ml-14">

@@ -48,7 +48,7 @@ export default function SignUp() {
                                 <h2 className="text-xl text-slate-800">Phone <span className="text-red-500">*</span></h2>
                                 <div className="flex focus:outline-none w-86 rounded-md py-2">
                                     <div className="flex items-center  border border-pink-400 rounded-l-md px-2 bg-white border-r">
-                                        <Image src={India} className="h-5 w-5 cursor-pointer"></Image>
+                                        <Image src={India} alt="" className="h-5 w-5 cursor-pointer"></Image>
                                         <FontAwesomeIcon icon={isOpen ? faCaretDown : faCaretUp} className="cursor-pointer ml-2" />
                                         <select className="text-sm outline-none appearance-none px-2 bg-white cursor-pointer">
                                             <option value="">+91</option>
