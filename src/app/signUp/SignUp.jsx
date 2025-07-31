@@ -5,16 +5,24 @@ import India from "../../assets/India.jpg"
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
 
     const [isOpen, setisOpen] = useState(true);
+        const router = useRouter();
+
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleClose = () => {
         setisOpen(false);
     }
+
+    const submit = () => {
+        router.push('/courses')
+    }
+
 
     return (
 
@@ -31,7 +39,7 @@ export default function SignUp() {
 
                     <h2 className="text-2xl font-bold mt-2 ml-1">Please Sign Up Here</h2>
 
-                    <form action="" className="mt-6 ml-1" onSubmit={handleSubmit()}>
+                    <form action="" className="mt-6 ml-1" onSubmit={handleSubmit(submit)}>
                         <div className="space-y-6">
                             <div className="space-y-1">
                                 <h2 className="text-xl text-slate-800">Email <span className="text-red-500">*</span></h2>

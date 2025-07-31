@@ -1,5 +1,6 @@
 import Navbar from "../navbar/Navbar";
 import Image from 'next/image';
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -56,8 +57,8 @@ export default function Courses() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 px-10 max-w-8xl">
-                {courses.map((course) => (
-                    <div className="w-[30%] min-w-[300px] bg-white rounded-2xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg mt-10 cursor-pointer">
+                {courses.map((course , index ) => (
+                    <div key={index} className="w-[30%] min-w-[300px] bg-white rounded-2xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg mt-10 cursor-pointer">
                         <div>
                             <Image src={course.img} alt={course.title} className="object-cover cursor-pointer"></Image>
                         </div>
