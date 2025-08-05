@@ -7,17 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 
-export default function SignUp() {
+export default function SignUp({close}) {
 
     const [isOpen, setisOpen] = useState(true);
-        const router = useRouter();
-
-
+    const [selectedCourse , setSelectedCourse ] = useState('');
+    const courses = [ 'Python' , 'Devops' , 'JavaScript' , 'AWS Cloud' , 'Azure Cloud' , 'ReactJS' , 'UI/UX' , 'HTML/CSS' , 'TerraForm' , 'Kubernetes' , 'Site Reliability Engineer' , 'Oops With Python' , 'Fundamentals Of Tech']
+    const router = useRouter();
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleClose = () => {
-        setisOpen(false);
-    }
+
 
     const submit = () => {
         router.push('/courses')
@@ -31,7 +30,7 @@ export default function SignUp() {
                 <div className="relative bg-pink-100  rounded-2xl px-7 py-10 mt-2 w-full max-w-[410px]">
                     <div>
                         <button className="absolute top-2 right-4 text-black font-medium text-3xl cursor-pointer justify-end"
-                            onClick={handleClose}
+                            onClick={close}
                         >
                             &times;
                         </button>

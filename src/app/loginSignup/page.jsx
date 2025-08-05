@@ -4,23 +4,50 @@ import Image from "next/image"
 import Login_Image from "../../assets/Login_Image.jpg"
 import Logo from "../../assets/Logo.webp"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope, faEye, faLock, faSlash } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope, faEye, faEyeSlash, faLock, faSlash, faUser } from "@fortawesome/free-solid-svg-icons"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 
 
 export default function SignUp() {
 
-     const [showPassword, setShowPassword] = useState('');
-        const [errorMessage, setErrorMessage] = useState('');
-        const [student, setStudent] = useState([]);
-        const router = useRouter();
-    
-        const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
+    const [showPassword, setShowPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [student, setStudent] = useState([]);
+    const router = useRouter();
 
-        const login = () => {
-            router.push('/login')
+    const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
+
+    const signUp = (FormData) => {
+
+    localStorage.setItem('userDetails', JSON.stringify(FormData));
+
+    router.push('/login')
+
+    }
+
+    useEffect(() => {
+
+        const stored = localStorage.getItem('userDetails');
+
+        if (stored) {
+
+            const user = JSON.parse(stored);
+            setValue('name', user.name);
+            setValue('email', user.email);
+            setValue('password', user.password);
         }
+    }, [setValue])
+
+    useEffect(() => {
+        const subscription = watch((value, { name }) => {
+            if (name === 'name' || name === 'email' || name === 'password') {
+                setErrorMessage('');
+            }
+        });
+        return () => subscription.unsubscribe();
+    }, [watch]);
+
 
     return (
 
@@ -32,23 +59,22 @@ export default function SignUp() {
                         <h2 className="text-4xl font-semibold tracking-widest">SKILL CAPITAL</h2>
                     </div>
 
-                    <form className="mt-10" autoComplete="off">
+                    <form className="mt-10" autoComplete="off" onSubmit={handleSubmit(signUp)}>
                         <div>
                             <div className="space-y-6">
 
                                 <div className="space-y-2">
                                     <h2 className="ml-2">Name</h2>
                                     <div className="flex items-center border border-gray-300 bg-white rounded-3xl px-4 py-2 w-[430px]">
-                                        <FontAwesomeIcon icon={faEnvelope} className="h-6 text-red-500" />
-                                        <input type="email" name="" id="" autoComplete="off"
+                                        <FontAwesomeIcon icon={faUser} className="h-6 text-red-500" />
+                                        <input type="text" name="" id=""
                                             className=" focus:border-blue-500 focus:outline-none px-4 w-86 placeholder-gray-400" placeholder="John Doe"
-                                            {...register('email', {
-                                                required: { value: true, message: "Email is required" },
-                                                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Incorrect Email Format" },
+                                            {...register('name', {
+                                                required: { value: true, message: "Name is Required" }
                                             })}
                                         />
                                     </div>
-                                    <p className='text-red-500 ml-3'>{errors.email?.message}</p>
+                                    <p className='text-red-500 ml-3'>{errors.name?.message}</p>
                                 </div>
 
                                 <div className="space-y-2">
@@ -69,8 +95,8 @@ export default function SignUp() {
                                     <h2 className="ml-2">Password</h2>
                                     <div className="flex items-center border border-gray-300  rounded-3xl px-4 py-2 w-[430px]">
                                         <FontAwesomeIcon icon={faLock} className="h-6 text-red-500" />
-                                        <input type="password" name="" id="" autoComplete="off"
-                                            className="focus:border-blue-500 focus:outline-none px-4 placeholder-gray-400" placeholder="******"
+                                        <input type={showPassword ? 'text' : 'password'} name="" id="" autoComplete="off"
+                                            className="flex-1 items-center focus:border-blue-500 focus:outline-none px-4 placeholder-gray-400" placeholder="******"
                                             {...register('password', {
                                                 required: { value: true, message: "Password is required" },
                                                 minLength: { value: 5, message: "Minimum 4 characters required" },
@@ -81,8 +107,8 @@ export default function SignUp() {
                                                 }
                                             })}
                                         />
-                                        <span>
-                                            <FontAwesomeIcon icon={showPassword ? faSlash : faEye} className="ml-36 justify-end cursor-pointer"></FontAwesomeIcon>
+                                        <span onClick={() => setShowPassword(!showPassword)}>
+                                            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="cursor-pointer"></FontAwesomeIcon>
                                         </span>
                                     </div>
                                     <p className='text-red-500 ml-3 text-sm whitespace-pre-line'>{errors.password?.message.replace(/, /, ',\n')}</p>
@@ -96,17 +122,18 @@ export default function SignUp() {
                         </div>
 
                         <div className="mt-5 ml-2 w-full max-w-[500px]">
-                            <button type="submit" className="bg-red-500 text-white hover:bg-red-700 text-center font-semibold rounded-3xl px-2 py-2 w-96 cursor-pointer ">Sign Up</button>
+                            <button type="submit" className="bg-red-500 text-white hover:bg-red-700 text-center font-semibold rounded-3xl px-2 py-2 w-96 cursor-pointer">Sign Up</button>
                         </div>
                         <div className="mt-6 ml-14">
-                            <h2>Already have an account? <span className="font-semibold text-pink-600 hover:underline cursor-pointer" onClick={login}>Login</span></h2>
+                            <h2>Already have an account? <span className="font-semibold text-pink-600 hover:underline cursor-pointer" onClick={() => router.push('/login')}>Login</span></h2>
                         </div>
                     </form>
                 </div>
-                <div className="my-20">
+                <div className="my-26">
                     <Image src={Login_Image} alt="" className="w-96 rounded-2xl cursor-pointer"></Image>
                 </div>
             </div>
         </div>
     )
+
 }

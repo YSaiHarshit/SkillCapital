@@ -4,14 +4,33 @@ import Link from "next/link";
 import SignUp from "../signUp/SignUp";
 import skillcapital from "../../assets/skillcapital.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesRight, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState , useRef , useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
 
     const [isSignUp, setIsSignUp] = useState();
+    const [selected, setSelected] = useState('Courses');
+    const [isOpen , setisOpen ] = useState(false);
+    const dropdownRef = useRef(null);
+
+    const courseLinks =[
+        
+        {label: "Python" , href:"/python"},
+        {label: "Devops" , href:"#"},
+        {label: "Oops With Python" , href:"#"},
+        {label: "Html and Css for Web" , href:"#"},
+        {label: "JavaScript" , href:"#"}
+    ]
+
+    const AllCoursesLink = [
+        {label: "All Courses" , href:"/courses"}
+    ]
+    
+    // const options = ['Python' , 'Devops' , 'Oops With Python' , 'Html and Css for Web' , 'JavaScript' , 'All Courses'];
+
     const router = useRouter();
 
     const handleClick = () => {
@@ -20,8 +39,27 @@ export default function Navbar() {
 
     const handleSignUp = () => {
         setIsSignUp(true);
-        // router.push('/sign-up')
     }
+
+    const python = () => {
+        router.push('/python')
+    }
+
+    useEffect(() => {
+
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)){
+                setisOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown" , handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown" , handleClickOutside)
+        }
+
+    } , [])
 
     return (
 
@@ -35,39 +73,31 @@ export default function Navbar() {
                         </a>
                     </div>
 
-                    <div className="relative group inline-block text-left ml-24">
-                        <div className="flex cursor-pointer space-x-2">
-                            <h2 className="text-xl font-medium">Courses</h2>
-                            <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4 mt-2" />
+                    <div className="relative inline-block text-left ml-24" ref={dropdownRef}>
+                        <div onClick={() => setisOpen((prev) => !prev)} className="flex cursor-pointer space-x-2">
+                            <h2  className="text-xl font-medium">{selected}</h2>
+                            <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown } className="w-4 h-4 mt-2" />
                         </div>
 
-                        <div className="absolute left-0 mt-7 w-56 rounded-b-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+                        {isOpen && (
+                            <div className="absolute left-0 mt-7 w-56 rounded-b-md shadow-lg bg-white ">
                             <div>
-                                <Link href="/python" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
+
+                                {courseLinks.map((course , index) => (
+                                    <Link key={index} href={course.href} className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600" onClick={python}>
                                     <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">Python</span>
+                                    <span className="text-sm text-gray-700">{course.label}</span>
                                 </Link>
-                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
-                                    <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">Devops</span>
+                                ))}
+                
+                                   {AllCoursesLink.map((AllCourses , index) => (
+                                     <Link key={index} href={AllCourses.href} className="flex items-center px-5 py-2 text-sm text-gray-700">
+                                    <button className="bg-pink-600 text-slate-50 hover:bg-pink-700 font-semibold px-2 py-3 w-44 rounded-lg cursor-pointer">{AllCourses.label}</button>
                                 </Link>
-                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
-                                    <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">Oops With Python</span>
-                                </Link>
-                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
-                                    <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">HTML and CSS for Web</span>
-                                </Link>
-                                <Link href="#" className="flex items-center px-4 py-1 text-sm text-gray-700 hover:bg-gray-200 hover:text-pink-600">
-                                    <FontAwesomeIcon icon={faAnglesRight} className="text-pink-600 mr-2 w-5" />
-                                    <span className="text-sm text-gray-700">JavaScript</span>
-                                </Link>
-                                <Link href="/courses" className="flex items-center px-5 py-2 text-sm text-gray-700">
-                                    <button className="bg-pink-600 text-slate-50 hover:bg-pink-700 font-semibold px-2 py-3 w-44 rounded-lg cursor-pointer">All Courses</button>
-                                </Link>
+                                   ))}
                             </div>
                         </div>
+                        )}
                     </div>
 
 
@@ -86,7 +116,7 @@ export default function Navbar() {
                     </div>
                 </nav>
             </div>
-            {isSignUp && (<SignUp setIsSignUp={setIsSignUp} />)}
+            {isSignUp && (<SignUp setIsSignUp={setIsSignUp} close={ () =>setIsSignUp(false)} />)}
         </div>
     )
 }

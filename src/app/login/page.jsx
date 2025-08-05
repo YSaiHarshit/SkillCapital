@@ -18,20 +18,18 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
 
     const login = (FormData) => {
-        const filteredStudents = student.find(student => student.email === FormData.email && student.password === FormData.password);
+        const storedUser = JSON.parse(localStorage.getItem("user"))
 
-        if (filteredStudents) {
-            localStorage.setItem('userDetails', JSON.stringify(filteredStudents));
-            router.push('/coursesPage')
+        if (
+            storedUser &&
+            storedUser.email === FormData.email &&
+            storedUser.password === FormData.password
+        ) {
+            localStorage.setItem("LoggedIn", true)
+            router.push("/coursesPage")
+        } else {
+            setErrorMessage("Invalid Email or Password")
         }
-        else {
-            setErrorMessage('Incorrect Email or Password');
-        }
-    }
-
-    const signUp = () => {
-
-        router.push('/loginSignup')
     }
 
     // useEffect(() => {
@@ -46,30 +44,30 @@ export default function Login() {
     //     }
     // }, [setValue])
 
-    useEffect(() => {
-        const subscription = watch((value, { name }) => {
-            if (name === 'email' || name === 'password') {
-                setErrorMessage('');
-            }
-        });
-        return () => subscription.unsubscribe();
-    }, [watch]);
+    // useEffect(() => {
+    //     const subscription = watch((value, { name }) => {
+    //         if (name === 'email' || name === 'password') {
+    //             setErrorMessage('');
+    //         }
+    //     });
+    //     return () => subscription.unsubscribe();
+    // }, [watch]);
 
 
-    useEffect(() => {
-        getStudents();
-    }, [])
+    // useEffect(() => {
+    //     getStudents();
+    // }, [])
 
-    const getStudents = () => {
+    // const getStudents = () => {
 
-        const studentsData = [
+    //     const studentsData = [
 
-            { "email": "y.saiharshith@gmail.com", "password": "Harshith@123" },
-            { "email": "alice.jhonson@gmail.com", "password": "Test@123" },
+    //         { "email": "y.saiharshith@gmail.com", "password": "Harshith@123" },
+    //         { "email": "alice.jhonson@gmail.com", "password": "Test@123" },
 
-        ];
-        setStudent(studentsData);
-    }
+    //     ];
+    //     setStudent(studentsData);
+    // }
 
 
     return (
@@ -89,7 +87,7 @@ export default function Login() {
                                     <h2 className="ml-2">Email</h2>
                                     <div className="flex items-center border border-gray-300 bg-white rounded-3xl px-4 py-2 w-[430px]">
                                         <FontAwesomeIcon icon={faEnvelope} className="h-6 text-red-500" />
-                                        <input type="email" name="" id="" autoComplete="off"
+                                        <input type="email" autoComplete="off"
                                             className=" focus:border-blue-500 focus:outline-none px-4 w-86 placeholder-gray-400" placeholder="Enter your email"
                                             {...register('email', {
                                                 required: { value: true, message: "Email is required" },
@@ -105,7 +103,7 @@ export default function Login() {
 
                                         <FontAwesomeIcon icon={faLock} className="h-6 text-red-500" />
 
-                                        <input type={showPassword ? 'text' : 'password'} name="" id="" autoComplete="off"
+                                        <input type={showPassword ? 'text' : 'password'} autoComplete="off"
                                             className="flex-1 items-center focus:border-blue-500 focus:outline-none px-4 placeholder-gray-400" placeholder="******"
                                             {...register('password', {
                                                 required: { value: true, message: "Password is required" },
@@ -124,21 +122,22 @@ export default function Login() {
 
                                     </div>
                                     <p className='text-red-500 ml-3 text-sm whitespace-pre-line'>{errors.password?.message.replace(/, /, ',\n')}</p>
-                                </div>
+                                    {errorMessage && <p className="text-red-500 text-md ml-4">{errorMessage}</p>}
 
+                                </div>
                             </div>
                         </div>
 
                         <div className="space-x-2 mt-6 ml-2">
-                            <input type="checkbox" name="" id="" className="ml-2 border-gray-400 size-4 cursor-pointer" />
+                            <input type="checkbox" className="ml-2 border-gray-400 size-4 cursor-pointer" />
                             <span className="text-lg">Remember Me</span>
                         </div>
 
-                        <div className="mt-5 ml-2 w-full max-w-[500px]" onClick={login}>
+                        <div className="mt-5 ml-2 w-full max-w-[500px]">
                             <button type="submit" className="bg-red-500 text-white hover:bg-red-700 text-center font-semibold rounded-3xl px-2 py-2 w-96 cursor-pointer ">Login</button>
                         </div>
                         <div className="mt-6 ml-14">
-                            <h2>Don't have an account? <span className="font-semibold text-pink-600 hover:underline cursor-pointer" onClick={signUp}>Sign Up</span></h2>
+                            <h2>Don't have an account? <span className="font-semibold text-pink-600 hover:underline cursor-pointer" onClick={() => router.push('/loginSignup')}>Sign Up</span></h2>
                         </div>
                     </form>
                 </div>

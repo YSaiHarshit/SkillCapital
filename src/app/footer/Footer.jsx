@@ -64,9 +64,9 @@ export default function Footer() {
                                     <span className="text-lg text-pink-600">Contact US</span>
                                 </Link>
                             </div>
+                            
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
